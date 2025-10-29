@@ -7,9 +7,12 @@ import Loader from "../Loader";
 import type { LoginResponse } from "../../data/response";
 import Cookies from "js-cookie"
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getUserInfo } from "../../store/authSlice";
 const LoginForm = () => {
   const {POST,loading} = useAPI();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const initialValues = {
     email: "",
     password: "",
@@ -18,7 +21,9 @@ const LoginForm = () => {
     // console.log(values);
     const response:LoginResponse = await POST("/yeshtery/token", {...values,isEmployee:true});
     console.log("Login response:", response);
+    dispatch(getUserInfo({ token: response.token.trim(), name: response.userInfo.name, id: response.userInfo.id }));
     Cookies.set("token", response.token.trim(),{ secure: true });
+    localStorage.setItem("userName", response.userInfo.name);
     navigate("/");
   };
   const formik = useFormik({
