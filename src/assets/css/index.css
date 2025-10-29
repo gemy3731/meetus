@@ -1,0 +1,45 @@
+@import "./colors.css";
+@import "tailwindcss";
+
+html {
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: ABeeZee;
+    background-image: url('/src/assets/images/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.loader {
+  border: 12px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  width: 1em;
+  height: 1em;
+  font-size: 80px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-gradient {
+  background: linear-gradient(
+    to right,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+}
