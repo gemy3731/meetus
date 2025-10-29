@@ -1,0 +1,1 @@
+export const baseurl = 'https://api-yeshtery.dev.meetusvr.com/v1';

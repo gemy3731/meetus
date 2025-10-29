@@ -15,6 +15,9 @@ body {
     background-attachment: fixed;
 }
 
+button {
+    cursor: pointer;
+}
 .loader {
   border: 12px solid #fff;
   border-bottom-color: transparent;
